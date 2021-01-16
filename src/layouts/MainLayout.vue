@@ -5,7 +5,7 @@
     </q-page-container>
 
     <!--FOOTER-->
-    <q-footer reveal elevated class="text-white">
+    <q-footer reveal class="text-white">
       <q-toolbar>
         <q-toolbar-title class="text-center">
           Majkl Zumberi @ Devchallenges.io
