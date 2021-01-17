@@ -40,13 +40,15 @@ const mutations = {
     state.quizQuestions = questions;
   },
   shuffleQuizQuesitons(state, countries) {
-    for (let i = 0; i < 10; i++) {
-      const splicedCountry = countries.splice(Math.floor((Math.random() * countries.length)), 1);
-      console.log({ splicedCountry });
-      state.quizQuestions.push(
-        ...splicedCountry,
-      );
-    }
+    // iterate 10 times
+    Array(10)
+      .fill()
+      .forEach(() => {
+        const splicedCountry = countries.splice(Math.floor((Math.random() * countries.length)), 1);
+        state.quizQuestions.push(
+          ...splicedCountry,
+        );
+      });
   },
 
 };
