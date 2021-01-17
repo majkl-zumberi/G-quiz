@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import country from './modules/country';
+import quiz from './modules/quiz';
 
 Vue.use(Vuex);
 
@@ -18,6 +19,7 @@ export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
       country,
+      quiz,
     },
 
     // enable strict mode (adds overhead!)
