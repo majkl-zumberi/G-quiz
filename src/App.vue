@@ -4,15 +4,19 @@
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'App',
+  computed: {
+    ...mapGetters(['countries']),
+  },
   methods: {
-    ...mapActions(['loadCountries']),
+    ...mapActions(['loadCountries', 'shuffleQuesitons']),
   },
   async created() {
     await this.loadCountries(); // this.$store.dispatch('loadCountries');
+    await this.shuffleQuesitons();
   },
 };
 </script>
