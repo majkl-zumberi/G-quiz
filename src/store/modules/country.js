@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Vue from 'vue';
+// import Vue from 'vue';
 
 const state = {
   loading: false,
@@ -11,12 +11,17 @@ const getters = {
   isLoading(state) {
     return state.loading;
   },
+  // eslint-disable-next-line no-shadow
+  countries(state) {
+    return state.countries;
+  },
 };
 
 const mutations = {
   // eslint-disable-next-line no-shadow
   storeCountries(state, countries) {
-    Vue.set(state, 'countries', countries);
+    // Vue.set(state, 'countries', countries);
+    state.countries = countries;
   },
   // eslint-disable-next-line no-shadow
   setLoading(state, status) {
@@ -33,7 +38,7 @@ const actions = {
         new Promise((resolve) => setTimeout(resolve, 600)),
       ]);
       const formattedCountries = data.map(({ name, capital, flag }) => ({ name, capital, flag }));
-      commit('storeCountries', { ...formattedCountries });
+      commit('storeCountries', formattedCountries);
     } finally {
       commit('setLoading', false);
     }
