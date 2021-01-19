@@ -96,9 +96,9 @@ const actions = {
       commit('incrementTurn');
     }
   },
-  userGuessed({ commit }) {
+  userGuessed({ commit, dispatch }) {
     commit('incrementGuessed');
-    this.incrementAndCheckTurn();
+    dispatch('incrementAndCheckTurn');
   },
   resetGame({ commit }) {
     commit('resetState');
@@ -108,7 +108,9 @@ const actions = {
     commit('loadQuizOptions', getters.countries);
   },
   selectedOptionIndex({ state }, option) {
-    return state.quizOptions.find((arr) => arr.includes(option)).findIndex((opt) => opt === option);
+    return state.quizOptions
+      .find((arr) => arr.includes(option))
+      .findIndex((opt) => opt === option);
   },
   correctOptionIndex({ state, dispatch }) {
     return dispatch('selectedOptionIndex', state.quizQuestions[state.turn].capital);
