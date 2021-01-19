@@ -15,6 +15,13 @@ const getters = {
   isGameOver(state) {
     return state.gameOver;
   },
+  currentQuiz(state) {
+    const { turn } = state;
+    return {
+      quizQuestions: state.quizQuestions[turn],
+      quizOptions: state.quizOptions[turn],
+    };
+  },
 };
 
 const mutations = {
