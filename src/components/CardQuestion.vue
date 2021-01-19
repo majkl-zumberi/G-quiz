@@ -9,7 +9,7 @@
         <ButtonChoice
           v-for="(choice,idx) in questionOptions"
            :key="idx"
-           :disabled="correctAnsidx!==-1&&wrongAnsIdx!==-1"
+           :disabled="correctAnsidx!==-1 || wrongAnsIdx!==-1"
            :status="wrongAnsIdx==idx?'wrong':correctAnsidx==idx?'correct':'default'"
            :capital="choice" />
 
