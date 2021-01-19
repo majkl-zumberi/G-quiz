@@ -6,7 +6,9 @@
         size="3em"
         color="orange" />
     <template v-else>
-      <CardQuestion/>
+      <CardQuestion
+        :questionTitle=quizQuestionTitle
+        :questionOptions=quizQuestionOptions />
     </template>
   </q-page>
 </template>
@@ -19,7 +21,14 @@ export default {
   name: 'PageIndex',
   components: { CardQuestion },
   computed: {
-    ...mapGetters(['isLoading']),
+    ...mapGetters(['isLoading', 'currentQuiz']),
+    quizQuestionTitle() {
+      const { name } = this.currentQuiz.quizQuestions || '';
+      return `${name} is the capital of`;
+    },
+    quizQuestionOptions() {
+      return this.currentQuiz.quizOptions;
+    },
   },
 };
 </script>
