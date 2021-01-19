@@ -6,19 +6,19 @@
         color="primary"
         size="2em"
     />
-    <img
-    v-else
-      alt="Quasar logo"
-      src="~assets/quasar-logo-full.svg"
-    >
+    <template v-else>
+      <CardQuestion/>
+    </template>
   </q-page>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import CardQuestion from 'components/CardQuestion';
 
 export default {
   name: 'PageIndex',
+  components: { CardQuestion },
   computed: {
     ...mapGetters(['isLoading']),
   },
