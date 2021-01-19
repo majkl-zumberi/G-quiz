@@ -14,6 +14,15 @@
            :capital="choice" />
 
       </q-card-section>
+      <q-card-actions align="right">
+        <!-- <q-btn flat>Action 1</q-btn> -->
+       <q-btn
+        v-if="correctAnsidx!==-1 || wrongAnsIdx!==-1"
+        color="amber-14"
+        label="Next"
+        class="q-mr-lg q-px-md"
+        @click="nextTurn"/>
+      </q-card-actions>
     </q-card>
 </template>
 
@@ -26,6 +35,11 @@ export default {
     ButtonChoice,
   },
   props: ['questionTitle', 'questionOptions', 'correctAnsidx', 'wrongAnsIdx'],
+  methods: {
+    nextTurn() {
+      this.$emit('nextTurn');
+    },
+  },
 };
 </script>
 
