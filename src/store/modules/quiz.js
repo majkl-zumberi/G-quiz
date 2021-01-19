@@ -96,9 +96,8 @@ const actions = {
       commit('incrementTurn');
     }
   },
-  userGuessed({ commit, dispatch }) {
+  userGuessed({ commit }) {
     commit('incrementGuessed');
-    dispatch('incrementAndCheckTurn');
   },
   resetGame({ commit }) {
     commit('resetState');
