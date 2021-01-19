@@ -1,11 +1,10 @@
 <template>
 
   <q-page class="flex flex-center custom-bg" >
-    <q-spinner-ball
-      v-if="isLoading"
-        color="primary"
-        size="2em"
-    />
+    <q-spinner-cube
+        v-if="isLoading"
+        size="3em"
+        color="orange" />
     <template v-else>
       <CardQuestion/>
     </template>
