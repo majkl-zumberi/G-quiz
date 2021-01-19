@@ -45,6 +45,8 @@ const mutations = {
     state.turn = 0;
     state.guessed = 0;
     state.gameOver = false;
+    state.quizQuestions = [];
+    state.quizOptions = [];
   },
   // eslint-disable-next-line no-shadow
   loadQuestions(state, questions) {
@@ -89,7 +91,7 @@ const mutations = {
 const actions = {
   // eslint-disable-next-line no-shadow
   incrementAndCheckTurn({ commit, state }) {
-    if (state.turn > 9) {
+    if (state.turn >= 9) {
       // quiz is over
       commit('setGameStatus', true);
     } else {
