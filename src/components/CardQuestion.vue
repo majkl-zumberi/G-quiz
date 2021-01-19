@@ -9,6 +9,8 @@
         <ButtonChoice
           v-for="(choice,idx) in questionOptions"
            :key="idx"
+           :disabled="correctAnsidx!==-1&&wrongAnsIdx!==-1"
+           :status="wrongAnsIdx==idx?'wrong':correctAnsidx==idx?'correct':'default'"
            :capital="choice" />
 
       </q-card-section>
@@ -23,7 +25,7 @@ export default {
   components: {
     ButtonChoice,
   },
-  props: ['questionTitle', 'questionOptions'],
+  props: ['questionTitle', 'questionOptions', 'correctAnsidx', 'wrongAnsIdx'],
 };
 </script>
 
