@@ -35,7 +35,7 @@ const actions = {
       commit('setLoading', true);
       const [{ data }] = await Promise.all([
         axios.get('https://restcountries.eu/rest/v2/region/europe'),
-        new Promise((resolve) => setTimeout(resolve, 600)),
+        new Promise((resolve) => setTimeout(resolve, 1000)),
       ]);
       const formattedCountries = data.map(({ name, capital, flag }) => ({ name, capital, flag }));
       commit('storeCountries', formattedCountries);
