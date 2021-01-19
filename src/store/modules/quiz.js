@@ -5,6 +5,7 @@ const state = {
   gameOver: false,
   turn: 0,
   quizQuestions: [],
+  quizOptions: [],
 };
 
 const getters = {
@@ -50,7 +51,26 @@ const mutations = {
         );
       });
   },
+  loadQuizOptions(state, countries) {
+    state.quizQuestions.forEach((question, idx) => {
+      const options = [];
+      // fill random capitals options three times
+      Array(3)
+        .fill()
+        .forEach(() => {
+          const country = {
+            ...countries
+              .splice(Math.floor((Math.random() * countries.length)), 1)[0],
+          };
 
+          options.push(country.capital);
+        });
+      options.push(question.capital);
+      state.quizOptions[idx] = options;
+      // shuffle options
+      state.quizOptions[idx] = state.quizOptions[idx].sort(() => Math.random() - 0.5);
+    });
+  },
 };
 
 const actions = {
@@ -72,6 +92,7 @@ const actions = {
   },
   shuffleQuesitons({ commit, getters }) {
     commit('shuffleQuizQuesitons', getters.countries);
+    commit('loadQuizOptions', getters.countries);
   },
 };
 
