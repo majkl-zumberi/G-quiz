@@ -22,6 +22,9 @@ const getters = {
       quizOptions: state.quizOptions[turn],
     };
   },
+  currentCorrectAnswer(state) {
+    return state.quizQuestions[state.turn].capital || '';
+  },
 };
 
 const mutations = {
@@ -73,9 +76,12 @@ const mutations = {
           options.push(country.capital);
         });
       options.push(question.capital);
-      state.quizOptions[idx] = options;
+      // state.quizOptions[idx] = options;
+      state.quizOptions.splice(idx, 0, options);
       // shuffle options
-      state.quizOptions[idx] = state.quizOptions[idx].sort(() => Math.random() - 0.5);
+      // state.quizOptions[idx] = state.quizOptions[idx].sort(() => Math.random() - 0.5);
+      const shuffledOptions = state.quizOptions[idx].sort(() => Math.random() - 0.5);
+      state.quizOptions.splice(idx, state.quizOptions[idx].length, shuffledOptions);
     });
   },
 };
@@ -100,6 +106,12 @@ const actions = {
   shuffleQuesitons({ commit, getters }) {
     commit('shuffleQuizQuesitons', getters.countries);
     commit('loadQuizOptions', getters.countries);
+  },
+  selectedOptionIndex({ state }, option) {
+    return state.quizOptions.find((arr) => arr.includes(option)).findIndex((opt) => opt === option);
+  },
+  correctOptionIndex({ state, dispatch }) {
+    return dispatch('selectedOptionIndex', state.quizQuestions[state.turn].capital);
   },
 };
 
