@@ -4,13 +4,13 @@
         <img src="./../assets/undraw_winners_ao2o2.svg" alt="summary">
       </q-card-section>
       <q-card-section>
-        <div class="question text-h6 indigo-4 text-weight-bold text-center">
+        <div class="result-title text-h3 text-center">
           Results
         </div>
       </q-card-section>
       <q-card-section>
         <div class="question text-h6 indigo-4 text-weight-bold text-center">
-          you got {{guessed}} correct answers
+          you got <span class="text-h6 guessed">{{guessed}}</span> correct answers
         </div>
       </q-card-section>
       <q-card-actions align="center">
@@ -34,12 +34,22 @@ export default {
     ...mapGetters(['guessed']),
   },
   methods: {
-    ...mapActions(['resetGame', 'loadCountries', 'shuffleQuesitons']),
+    ...mapActions(['resetGame', 'loadCountries', 'shuffleQuestions']),
     async resetQuiz() {
       this.resetGame();
       await this.loadCountries(); // this.$store.dispatch('loadCountries');
-      await this.shuffleQuesitons();
+      await this.shuffleQuestions();
     },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+  .result-title{
+    color:$indigo-8 !important;
+  }
+  .guessed{
+    color:$green-8 !important;
+    font-size: 2em;
+  }
+</style>

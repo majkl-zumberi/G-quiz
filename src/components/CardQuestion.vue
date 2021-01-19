@@ -1,7 +1,7 @@
 <template>
   <q-card style="border-radius:25px">
       <q-card-section>
-        <div class="question text-h6 indigo-4 text-weight-bold">
+        <div class="question text-h6 indigo-4 text-weight-bold text-center">
           {{questionTitle}}
         </div>
       </q-card-section>
