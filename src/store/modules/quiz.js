@@ -52,7 +52,7 @@ const mutations = {
   loadQuestions(state, questions) {
     state.quizQuestions = questions;
   },
-  shuffleQuizQuesitons(state, countries) {
+  shuffleQuizQuestions(state, countries) {
     // iterate 10 times
     Array(10)
       .fill()
@@ -104,8 +104,8 @@ const actions = {
   resetGame({ commit }) {
     commit('resetState');
   },
-  shuffleQuesitons({ commit, getters }) {
-    commit('shuffleQuizQuesitons', getters.countries);
+  shuffleQuestions({ commit, getters }) {
+    commit('shuffleQuizQuestions', getters.countries);
     commit('loadQuizOptions', getters.countries);
   },
   selectedOptionIndex({ state }, option) {

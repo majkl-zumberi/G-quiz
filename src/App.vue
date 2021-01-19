@@ -9,11 +9,11 @@ import { mapActions } from 'vuex';
 export default {
   name: 'App',
   methods: {
-    ...mapActions(['loadCountries', 'shuffleQuesitons']),
+    ...mapActions(['loadCountries', 'shuffleQuestions']),
   },
   async mounted() {
     await this.loadCountries(); // this.$store.dispatch('loadCountries');
-    await this.shuffleQuesitons();
+    await this.shuffleQuestions();
   },
 };
 </script>
