@@ -36,7 +36,7 @@ export default {
     ...mapGetters(['isLoading', 'currentQuiz', 'currentCorrectAnswer', 'isGameOver']),
     quizQuestionTitle() {
       const { name } = this.currentQuiz.quizQuestions || '';
-      return `${name} is the capital of`;
+      return `which is ${name}'s capital?`;
     },
     quizQuestionOptions() {
       return this.currentQuiz.quizOptions;
