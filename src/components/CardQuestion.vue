@@ -1,7 +1,12 @@
 <template>
-  <q-card style="border-radius:25px">
+  <q-card class="card-container" style="border-radius:25px">
+    <q-img
+      class="top-right"
+      src="./../assets/undraw_adventure_4hum1.svg"
+      style="height: auto; max-width: 8.75rem"
+      spinner-color="white"/>
       <q-card-section>
-        <div class="question text-h6 indigo-4 text-weight-bold text-center">
+        <div class="q-mt-md question text-h6 indigo-4 text-weight-bold text-center">
           {{questionTitle}}
         </div>
       </q-card-section>
@@ -46,5 +51,13 @@ export default {
 <style lang="scss" scoped>
   .question{
     color: $indigo-8;
+  }
+  .card-container{
+    position: relative;
+  }
+  .top-right{
+    position: absolute;
+    right:0px;
+    top:-5rem;
   }
 </style>
