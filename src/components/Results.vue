@@ -1,7 +1,10 @@
 <template>
   <q-card style="border-radius:25px">
       <q-card-section class="q-pa-lg">
-        <img src="./../assets/undraw_winners_ao2o2.svg" alt="summary">
+        <q-img
+          src="./../assets/undraw_winners_ao2o2.svg"
+          alt="summary"
+          spinner-color="white"/>
       </q-card-section>
       <q-card-section>
         <div class="result-title text-h3 text-center">
