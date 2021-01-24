@@ -1,11 +1,15 @@
 <template>
 
-  <q-page class="flex flex-center custom-bg" >
+  <q-page class="flex flex-center column custom-bg" >
     <q-spinner-cube
         v-if="isLoading"
         size="3em"
         color="orange" />
     <template v-else-if="!isGameOver">
+      <h4
+        class="text-bold text-uppercase"
+        :class="$q.platform.is.mobile?'text-h5':'text-h4'"
+        style="color:white; margin-bottom:.5rem; margin-left:-10rem">country quiz</h4>
       <CardQuestion
         :questionTitle=quizQuestionTitle
         :questionOptions=quizQuestionOptions
