@@ -34,10 +34,13 @@ const actions = {
     try {
       commit('setLoading', true);
       const [{ data }] = await Promise.all([
-        axios.get('https://restcountries.eu/rest/v2/region/europe'),
+        axios.get('https://restcountries.com/v3.1/region/europe'),
         new Promise((resolve) => setTimeout(resolve, 1000)),
       ]);
-      const formattedCountries = data.map(({ name, capital, flag }) => ({ name, capital, flag }));
+
+      const formattedCountries = data
+        .map(({ name, capital, flag }) => ({ name: name.common, capital: capital[0], flag }));
+
       commit('storeCountries', formattedCountries);
     } finally {
       commit('setLoading', false);
